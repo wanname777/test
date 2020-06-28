@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>css的特性</title>
+        <style type="text/css">
+            h1 {
+                color: red;
+                text-align: center;
+                background: yellow;
+
+                color: green;
+                color: blue; /*只有blue生效，体现了层叠性*/
+            }
+            p {
+                color: red;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>我是又一次的h1</h1>
+        <p style="color: green;">
+            <!--这里既体现了层叠性也体现了继承性-->
+            <!--但不是所有特性都会继承-->
+            华为P40，满溢屏，真好看
+            <span>真的很好看</span>
+        </p>
+    </body>
+</html>

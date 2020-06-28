@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>派生选择器</title>
+        <style>
+            span {
+                color: green;
+            }
+
+            /*后代选择器*/
+            div span {
+                color: red;
+            }
+            /*p span {
+                color: blue;
+            }*/
+
+            /*子元素选择器*/
+            /*p > span {
+                color: blue;
+            }*/
+
+            /*相邻兄弟选择器*/
+            span + span {
+                color: brown;
+            }
+            div + p {
+                color: salmon;
+            }
+        </style>
+    </head>
+    <body>
+        <div>华为云：<span>HCIC认证</span></div>
+        <p>
+            华为云：
+            <span>HCIC认证<span>heihei</span></span>
+            <span>HCIE</span>
+            <span>kkk</span>
+        </p>
+    </body>
+</html>

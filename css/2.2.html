@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>id选择器和类选择器（class）</title>
+        <style>
+            #content,
+            #title {
+                background: yellow;
+            }
+            /*一般都可逗号多选，id一般不重复，class可重复*/
+            #title {
+                color: red;
+            }
+            .h {
+                text-align: center;
+            }
+            .phone {
+                font-size: 30px;
+            }
+            p.phone {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="content" class="h">大家好我还是h1</h1>
+        <h2 id="title" class="h">我是h2</h2>
+        <!--id具有唯一性，如果相同，那就相同吧，但是极不推荐-->
+        <div class="phone">P40</div>
+        <div class="phone">Mate30</div>
+        <p class="phone">nova7</p>
+        <p class="phone">honor30</p>
+    </body>
+</html>

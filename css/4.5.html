@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>display</title>
+        <style type="text/css">
+            div.box1 {
+                /* display: inline; */
+                /* background-color: red; */
+                display: inline-block;
+                /* display: none; */
+                border: 1px solid black;
+                width: 200px;
+                font-size: 14px;
+            }
+            span.box2 {
+                display: block;
+                background-color: yellow;
+                font-size: 14px;
+            }
+            div.box3 {
+                display: inline-block;
+                border: 1px solid #000;
+                height: 100px;
+                font-size: 14px;
+            }
+            /*块级元素可设计宽高，内联元素只取决于文字多少*/
+            span {
+                font-size: 14px;
+            }
+            body {
+                font-size: 0px;
+                /*可以去掉换行符造成的空格，但总感觉不太好用。。*/
+                /*手动去掉换行符也行，但容易被格式化换回来*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">华为云</div>
+        <div class="box3">嘿嘿嘿</div>
+
+        <!-- <span class="box2">嘿嘿嘿</span> -->
+        <span>111</span><span>222</span>
+    </body>
+</html>

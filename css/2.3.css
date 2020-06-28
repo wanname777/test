@@ -1,0 +1,27 @@
+/* 前两个最常用，后两个很有用 */
+/* p[title] {
+    color: red;
+}
+p[title="hua-wei hua"] {
+    color: red;
+}
+p[title~="hua"] {
+    color: red;
+} */
+p[title|="hua"] {
+    color: red;
+}
+
+/*这四个是固定顺序 LoVe HAte*/
+a:link {
+    color: red;
+}
+a:visited {
+    color: blue;
+}
+a:hover {
+    color: green;
+}
+a:active {
+    color: pink;
+}

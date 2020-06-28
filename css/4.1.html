@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>盒模型</title>
+        <style type="text/css">
+            div.box {
+                margin: 50px auto;
+                /*当左右均为auto时div会居中*/
+                /*两个margin的上下区域（div）数值只取决于最大的那个px，左右（span）则是正常相加*/
+                border: 10px red solid;
+                border-style: dashed;
+                border-width: 1px 10px; /*thin medium thick*/
+                border-color: aqua;
+                border-bottom: 10px solid red; /*solid必须加*/
+                padding: 10px; /*上右下左，不同个数有不同的含义，一般写全会好些*/
+                padding-top: 1px;
+                width: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">华为云</div>
+    </body>
+</html>

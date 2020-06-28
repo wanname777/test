@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>选择器的权重</title>
+        <style>
+            /* 通配符*<元素（标签）最后一个<类<特定类<伪类~属性<id<特定id<内联<!important */
+            div {
+                color: green !important;
+                color: blue;
+            }
+            .hw {
+                color: blue;
+            }
+            div.hw {
+                color: red;
+            }
+            div[title] {
+                color: aqua;
+            }
+            #huawei {
+                color: blue;
+            }
+            div#huawei {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="huawei" class="hw" title="hhh" style="color: gray;">
+            华为云在线教育解决方案
+        </div>
+    </body>
+</html>
