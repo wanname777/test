@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双飞翼布局</title>
+    <style type="text/css">
+        div.container{
+            border: 1px solid black;
+            margin: 0px auto;
+            width: 900px;
+            /* 改变width不影响中间的显示 */
+            /* 中间内容先加载 */
+            /* 使用float布局，margin构造巧妙，浏览器兼容性好 */
+        }
+        div.center{
+            float: left;
+            background: yellow;
+            width: 100%;
+        }
+        div.left{
+            float: left;
+            background-color: green;
+            width: 200px;
+            margin-left: -100%;
+        }
+        div.right{
+            float: left;
+            background-color: pink;
+            width: 200px;
+            margin-left: -200px;
+        }
+        div.content{
+            margin: 0px 200px;
+        }
+        div.clearfix::after{
+            content: "";
+            clear: both;
+            display: block;
+
+            height: 0px;
+            font-size: 0px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clearfix">
+        <div class="center">
+            <div class="content">
+                华为云
+            </div>
+        </div>
+        <div class="left">
+            left
+        </div>
+        <div class="right">
+            right
+        </div>
+    </div>
+</body>
+</html>

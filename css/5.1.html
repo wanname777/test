@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>浮动与清除浮动</title>
+        <style type="text/css">
+            div.box {
+                /* height: 200px; */
+                border: 1px solid #000;
+                text-align: center;
+                /* overflow: auto; */
+                /* overflow是防止父元素塌陷的第二种方法 */
+            }
+            div.swim_left {
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                float: left;
+            }
+            div.swim_right {
+                width: 200px;
+                height: 200px;
+                background-color: green;
+                float: right;
+            }
+            div.clear {
+                clear: right;
+                /* 清除最大浮动 */
+            }
+            div.box1 {
+                border: 1px solid black;
+                width: 200px;
+                height: 200px;
+                overflow: auto;
+            }
+            .clearfix::after {
+                /* 必选 */
+                content: "";
+                clear: both;
+                display: block;
+                /* 可选 */
+                height: 0px;
+                font-size: 0px;
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box clearfix">
+            我是一只鱼
+            <!-- 浮动会浮在最表面，导致（自动的）父元素塌陷，影响布局效果 -->
+            <div class="swim_left">
+                我就是我，是颜色不一样的left
+            </div>
+            <div class="swim_right">
+                我就是我，是颜色不一样的right
+            </div>
+            <!-- clear要放在子元素的最下面，而且必须是块级元素，inline-block也不行 -->
+            <!-- <div class="clear">
+                
+            </div> -->
+        </div>
+        <div class="box1">
+            华为云用在线的方式将华为30多年在ICT基础设施领域的技术积累和产品解决方案开放给客户，致力于提供稳定可靠、安全可信、可持续创新的云服务，做智能世界的“黑土地”，推进实现“用得起、用得好、用得放心”的普惠AI。华为云作为底座，为华为全栈全场景AI战略提供强大的算力平台和更易用的开发平台。
+        </div>
+    </body>
+</html>
