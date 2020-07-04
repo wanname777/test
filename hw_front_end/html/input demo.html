@@ -4,21 +4,34 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>input demo</title>
+        
     </head>
+
     <body>
-        <form action="https://www.huawei.com" method="get" align="center">
+        <form action="https://www.huawei.com" method="get" align="left">
             <div>你想要购买什么手机？</div>
             <div>
-                用户名：
-                <input type="text" name="user" />
+                <label for="username">用户名：</label>
+                <input
+                    type="text"
+                    name="user"
+                    maxlength="6"
+                    value="请输入用户名"
+                    id="username"
+                />
+                <!-- maxlength表示用户最多输入几个字符 -->
+                <!-- 在input的text下，可以用value让框内生成默认文字 -->
+                <!-- 而radio和checkbox中value则是与name形成键值对 -->
             </div>
             <div>
-                密码：
-                <input type="password" name="pwd" />
+                <label for="psword">密码：</label>
+                <input type="password" name="pwd" id="psword" />
             </div>
             <div>
+                <!-- 将input的id和label的for绑定，这样可以优化用户体验 -->
+                <!-- input的radio和checkbox在同一部分下分别需要有相同的name -->
                 型号：
-                <input type="radio" name="phone" id="p" value="p40" />
+                <input type="radio" name="phone" id="p" value="p40" checked />
                 <label for="p">P40</label>
                 <input type="radio" name="phone" id="m" value="mate30" />
                 <label for="m">Mate30</label>
@@ -32,14 +45,47 @@
                     name="part"
                     id="w"
                     value="wired_headset"
+                    checked
                 />
+                <!-- checked表示默认勾选 -->
                 <label for="w">有线耳机</label>
                 <input type="checkbox" name="part" id="c" value="power_bank" />
                 <label for="c">充电宝</label>
             </div>
             <div>
+                爱好：
+                <select name="hobby" id="hoby" size="1">
+                    <option value="hb">科技</option>
+                    <option value="hb">娱乐</option>
+                    <option value="hb">爱情</option>
+                    <option value="hb">动作</option>
+                </select>
+            </div>
+
+            <div>上传头像：<input type="file" name="img" id="png" /></div>
+            <div>
+                您的建议：<br />
+                <textarea name="suggestion" id="s1" cols="30" rows="10">
+请输入您的建议</textarea
+                >
+            </div>
+            <div>
+                <input type="button" value="保存" />
                 <input type="submit" value="提交" />
                 <input type="reset" value="重置" />
+            </div>
+            <div>
+                <a
+                    href="C:/Users/zhang/Desktop/kmeans.zip"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >kmeans下载<img
+                        src="C:/Users/zhang/Desktop/kmeans/批注 2020-07-01 113510.png"
+                        alt="kmeans图片"
+                        title="kmeans图一"
+                        height="50px"
+                    />123</a
+                >
             </div>
         </form>
     </body>
