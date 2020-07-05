@@ -1,0 +1,30 @@
+.text-gray {
+    color: gray;
+    font-size: 13px;
+}
+.font-normal {
+    font-size: 16px;
+}
+.strong-font {
+    font-weight: bold;
+}
+.picture-center {
+    text-align: center;
+}
+.foot-2em {
+    text-indent: 2em;
+}
+div.center {
+    text-align: center;
+}
+/* 后代选择器，可以是儿子，可以是孙子 */
+div.center form a {
+    display: inline;
+    text-decoration: none;
+}
+div.center form input#search1:focus {
+    color: yellowgreen;
+}
+div.content p {
+    text-indent: 2em;
+}
