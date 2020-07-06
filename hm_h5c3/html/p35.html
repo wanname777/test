@@ -7,16 +7,26 @@
         <!-- 更多table使用建议参考：
         D:\vscode\vs_end_01\hw_front_end\html\table demo.html
         D:\vscode\vs_end_01\hw_front_end\html\table example.html -->
+        <style>
+            table {
+                width: 500px;
+                height: 250px;
+            }
+            .rank,
+            .rank td {
+                border: 1px solid pink;
+                border-collapse: collapse;
+                font-size: 14px;
+                text-align: center;
+                /* cellpadding="10px" */
+            }
+        </style>
     </head>
     <body>
-        <table
-            align="center"
-            border="1"
-            cellspacing="0"
-            cellpadding="10px"
-            width="500px"
-            height="250px"
-        >
+        <table class="rank" align="center" cellspacing="0">
+            <caption>
+                <strong>小说排行</strong>
+            </caption>
             <thead>
                 <tr>
                     <th>排名</th>
@@ -28,9 +38,6 @@
                 </tr>
             </thead>
             <tbody>
-                <caption>
-                    <strong>小说排行</strong>
-                </caption>
                 <tr>
                     <td>1</td>
                     <td rowspan="2">鬼吹灯</td>
