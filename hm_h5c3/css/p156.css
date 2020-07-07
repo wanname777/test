@@ -12,29 +12,27 @@ td {
     padding: 5px;
 }
 .box {
-    /* display: inline-block; */
     width: 298px;
     height: 450px;
     background-color: white;
     margin: 0 auto;
-
-    /* text-align: center; */
+    text-align: center;
 }
-/* .image img{
-    width: 100%;
-} */
+.box:hover {
+    box-shadow: 5px 5px 5px -4px rgba(0, 0, 0, 0.3);
+}
 .box a {
     text-decoration: none;
 }
 .review {
-    /* display: block; */
     height: 70px;
-    /* width: 200px; */
     font-size: 14px;
     padding: 0 18px;
     margin-top: 30px;
     color: black;
-    /* text-indent: 2em; */
+    text-align: left;
+    text-indent: 2em;
+    text-shadow: 1px 1px 6px rgba(0,0,0,.3);
     word-wrap: break-word;
 }
 .appraise {

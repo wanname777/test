@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p162_demo</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                width: 248px;
+                height: 163px;
+                border: 1px solid #cccccc;
+                border-radius: 25% 50% 1%;
+                /* 左上，右上，右下，左下，只写两个为对角线，三个为左上，对角线，右下 */
+                margin: 100px auto;
+            }
+            .box h3 {
+                height: 32px;
+                border-bottom: 1px dotted #cccccc;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 32px;
+                padding-left: 15px;
+                /* 用margin-left会使下边框右移 */
+            }
+            li {
+                list-style: none;
+            }
+            .box ul {
+                margin-top: 7px;
+            }
+            .box ul li {
+                height: 23px;
+                line-height: 23px;
+                padding-left: 20px;
+            }
+            .box ul li a {
+                font-size: 12px;
+                color: #666666;
+                text-decoration: none;
+            }
+            .box ul li a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h3>品优购快报</h3>
+            <ul>
+                <li><a href="#">【推荐】111</a></li>
+                <li><a href="#">【推荐】222</a></li>
+                <li><a href="#">【推荐】333</a></li>
+                <li><a href="#">【推荐】444</a></li>
+                <li><a href="#">【推荐】555</a></li>
+            </ul>
+        </div>
+    </body>
+</html>
