@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p248_demo</title>
+        <style>
+            .tudou {
+                position: relative;
+                width: 444px;
+                height: 320px;
+                background-color: pink;
+                margin: 100px auto;
+            }
+            .tudou .mask{
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,.3);
+            }
+            /* 由于隐藏了，所以只能经过外层，所以是父元素加hover */
+            .tudou:hover .mask{
+                display: block;
+            }
+            .tudou .mask img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -25px;
+                margin-left: -25px;
+                width: 50px;
+                height: 50px;
+            }
+            .tudou img {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tudou">
+            <div class="mask">
+                <img src="D:/vscode/vs_end_01/images/css单选择器.png" alt="">
+            </div>
+            <img src="D:/vscode/vs_end_01/images/background背景属性表.png" alt="" />
+        </div>
+        <div class="tudou">
+            <div class="mask">
+                <img src="D:/vscode/vs_end_01/images/css单选择器.png" alt="">
+            </div>
+            <img src="D:/vscode/vs_end_01/images/background背景属性表.png" alt="" />
+        </div>
+        <div class="tudou">
+            <div class="mask">
+                <img src="D:/vscode/vs_end_01/images/css单选择器.png" alt="">
+            </div>
+            <img src="D:/vscode/vs_end_01/images/background背景属性表.png" alt="" />
+        </div>
+    </body>
+</html>
