@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p265_demo</title>
+        <style>
+            .box {
+                width: 150px;
+                height: 80px;
+                background-color: pink;
+                margin: 10px auto;
+            }
+            .box1 {
+                /* 一行内的省略号 */
+                /* 现在已经默认是一行显示，不自动换行了,强制换行用break-word */
+                /* word-wrap: break-word; */
+                /* nowrap是强制一行显示 */
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .box2 {
+                /* 多行，指定行显示省略号 */
+                /* 兼容性较差 */
+                word-wrap: break-word;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            ul li {
+                position: relative;
+                float: left;
+                list-style: none;
+                width: 150px;
+                height: 200px;
+                border: 1px solid red;
+                margin-left: -1px;
+            }
+            ul::after {
+                display: block;
+                clear: both;
+                content: "";
+            }
+            ul li:hover {
+                /* 相对定位会压住其他标准流和浮动，并保留原位置 */
+                /* 如果盒子本身没有定位，添加相对定位即可 */
+                /* position: relative; */
+                z-index: 1;
+                border: 1px solid blue;
+            }
+            .box3 {
+                text-align: center;
+            }
+            .box3 a {
+                display: inline-block;
+                width: 36px;
+                height: 36px;
+                border: 1px solid red;
+                background-color: pink;
+                text-align: center;
+                line-height: 36px;
+                text-decoration: none;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box box1">
+            11111111111111111111111111111111
+        </div>
+        <div class="box box2">
+            22222222222222222222222222222222
+        </div>
+        <ul class="clearfix">
+            <li>1</li>
+            <li>2</li>
+            <li>4</li>
+            <li>5</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div class="box3">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </body>
+</html>

@@ -101,6 +101,8 @@ body {
     /* img并没有居中显示 */
     width: 35px;
     height: 35px;
+    /* 该属性只针对块元素 */
+    vertical-align: middle;
 }
 
 .banner {
