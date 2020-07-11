@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>p275_demo p287</title>
+        <title>p275_demo</title>
         <style>
             header,
             nav {
@@ -16,13 +16,111 @@
             section {
                 width: 500px;
                 height: 300px;
+                margin: 50px auto;
                 background-color: skyblue;
+            }
+            section video {
+                filter: blur(5px);
+                /* 外边框去除 */
+                outline: none;
+            }
+            section video:hover{
+                /* 模糊处理 */
+                filter: blur(0);
+            }
+            section form ul li input[name="ser"]{
+                /* ^=以其开头
+                $=以其结尾
+                *=包含 */
+                outline: none;
+            }
+            /* 从1计数，从第一个孩子里选li类型 */
+            section form ul li:nth-child(1) {
+                color: red;
+            }
+            /* 从li类型里选第n个 */
+            section form ul li:nth-of-type(1){
+                color: green;
+            }
+            section form  ul li input::placeholder {
+                color: red;
+                text-align: center;
+            }
+            .ele1{
+                border: 10px solid red;
+                padding: 15px;
+                box-sizing: border-box;
+                /* 使盒子大小只取决于width */
+            }
+            .ele2:hover{
+                width: 1000px;
+                height: 500px;
+                transition: all 0.5s ease 0.5s;
+            }
+            .ele2 div{
+                width: calc(100% - 30px);
+                background-color: pink;
+            }
+            .clearfix::before{
+                content: "456";
+                display: block;
+            }
+            .clearfix::after{
+                content: "789";
+                display: block;
             }
         </style>
     </head>
     <body>
         <header>123</header>
         <nav>123</nav>
-        <section>123</section>
+        <section>
+            <video
+                src="D://vscode/vs_end_01/images/test1.mp4"
+                width="500px"
+                height="300px"
+                poster="D://vscode/vs_end_01/images/audio属性.png"
+                controls
+                autoplay
+                muted
+                loop
+            ></video>
+        </section>
+        <section>
+            <form action="" method="get">
+                <ul>
+                    <br>
+                    <li>email <input type="email" name="" id="" /></li>
+                    <li>url <input type="url" name="" id="" /></li>
+                    <li>date <input type="date" name="" id="" /></li>
+                    <li>time <input type="time" name="" id="" /></li>
+                    <li>number <input type="number" name="" id="" /></li>
+                    <li>tel <input type="tel" name="" id="" /></li>
+                    <li>
+                        search
+                        <input
+                            type="search"
+                            name="ser"
+                            id=""
+                            required
+                            autofocus
+                            autocomplete="off"
+                            placeholder="nihao"
+                        />
+                    </li>
+                    <li>color <input type="color" name="" id="" /></li>
+                    <input type="file" name="" id="" multiple>
+                    <li><input type="submit" value="提交" /></li>
+                    <!-- <li></li> -->
+                </ul>
+            </form>
+        </section>
+        <section class="ele1 clearfix">
+            123
+        </section>
+        <section class="ele2 clearfix">
+            <div>123</div>
+        </section>
+
     </body>
 </html>

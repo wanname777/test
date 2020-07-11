@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fun1</title>
+    </head>
+    <body>
+        <div id="time1">2020-7-11</div>
+        <ul id="num1">
+            <li class="n1">1</li>
+            <li class="n1">2</li>
+            <li class="n1">3</li>
+            <li class="n1">4</li>
+            <li class="n1">5</li>
+        </ul>
+        <!-- 因为文档从上往下加载，所以应该在下面写<script></script> -->
+        <script>
+            console.log(
+                document.body,
+                typeof document.body,
+                document.head,
+                typeof document.head
+            );
+            var t1 = document.getElementById('time1'); //获得的是对象
+            console.log(t1, typeof t1, t1.id, t1.innerText, t1.innerHTML);
+            console.dir(t1);
+            var t2 = document.getElementsByTagName('li'); //尽管也是对象，但是是伪数组
+            console.log(t2, typeof t2, t2[0]);
+            var t3 = document.getElementById('num1');
+            console.log(t3.getElementsByTagName('li'));
+            // 以下为h5新增方法
+            console.log(document.getElementsByClassName('n1'));
+            console.log(document.querySelector('.n1')); //只返回第一个
+            console.log(document.querySelectorAll('.n1'));
+        </script>
+    </body>
+</html>
