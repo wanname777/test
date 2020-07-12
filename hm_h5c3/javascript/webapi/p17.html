@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p17_demo</title>
+        <style>
+            .box {
+                position: relative;
+                width: 400px;
+                margin: 100px auto;
+                border-bottom: 1px solid #cccccc;
+            }
+            .box img {
+                position: absolute;
+                top: 2px;
+                right: 2px;
+                width: 24px;
+            }
+            .box input {
+                width: 370px;
+                height: 30px;
+                border: 0;
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <label for="">
+                <img
+                    src="D:/vscode/vs_end_01/images/audio属性.png"
+                    alt=""
+                    id="eye"
+                />
+            </label>
+            <input type="password" name="" id="pwd" />
+        </div>
+        <script>
+            var eye = document.getElementById('eye'),
+                pwd = document.getElementById('pwd'),
+                flag = true;
+            eye.onclick = function () {
+                if (flag) {
+                    this.src = 'D:/vscode/vs_end_01/images/legend_honor1.jpg';
+                    pwd.type = 'text';
+                } else {
+                    this.src = 'D:/vscode/vs_end_01/images/audio属性.png';
+                    pwd.type = 'password';
+                }
+                flag = !flag;
+            };
+            var div=document.querySelector('div');
+            div.onclick=function(){
+                this.style.backgroundColor='purple';
+            }
+            
+        </script>
+    </body>
+</html>

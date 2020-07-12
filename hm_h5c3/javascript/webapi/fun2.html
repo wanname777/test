@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>fun2</title>
+    </head>
+    <body>
+        <button id="btn1">修改时间</button>
+        <div id="time1">2020-7-12 11:39:32</div>
+        <script>
+            var b1 = document.getElementById('btn1'),
+                t1 = document.getElementById('time1');
+
+            b1.onclick = function () {
+                var tempDate = new Date();
+                console.dir(tempDate);
+                t1.innerHTML = '<strong>你好!</strong>' + tempDate; //推荐
+                // innerHTML可以使用html元素，innerText不能，而且会去除html、空格、换行
+            };
+        </script>
+        <button id="btn2">图1</button>
+        <button id="btn3">图2</button><br />
+        <img
+            src="D:/vscode/vs_end_01/images/audio属性.png"
+            alt=""
+            title="111"
+            id="im1"
+            width="500px"
+        />
+        <script>
+            var b2 = document.querySelector('#btn2'),
+                b3 = document.querySelector('#btn3'),
+                i1 = document.querySelector('#im1');
+            b2.onclick = function () {
+                i1.src = 'D:/vscode/vs_end_01/images/audio属性.png';
+                i1.title = '111';
+                // b2.disabled = true;
+                this.disabled = true;
+                
+            };
+            b3.onclick = function () {
+                i1.src = 'D:/vscode/vs_end_01/images/background背景属性表.png';
+                i1.title = '222';
+                // b3.disabled = true;
+                this.disabled = true;
+                
+            };
+        </script>
+    </body>
+</html>

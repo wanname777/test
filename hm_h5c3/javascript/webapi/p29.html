@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p29_demo</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .tab {
+                margin: 100px auto;
+                width: 800px;
+                height: 500px;
+                background-color: #cccccc;
+                /* text-align: center; */
+            }
+            .tab-list ul li {
+                float: left;
+                list-style: none;
+                padding: 10px 10px;
+            }
+            .current {
+                border: 1px solid red;
+            }
+            .clearfix::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+            .tab-con {
+                padding-top: 10px;
+            }
+            .tab-con .item {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tab">
+            <div class="tab-list clearfix">
+                <ul>
+                    <li class="current">商品介绍</li>
+                    <li>规格与包装</li>
+                    <li>售后保障</li>
+                    <li>商品评价</li>
+                    <li>手机社区</li>
+                </ul>
+            </div>
+            <div class="tab-con">
+                <div class="item" style="display: block;">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+                <div class="item">4</div>
+                <div class="item">5</div>
+            </div>
+        </div>
+        <script>
+            var tabList = document.querySelector('.tab-list');
+            var lis = tabList.querySelectorAll('li');
+            var items = document.querySelectorAll('.item');
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].setAttribute('index', i);
+                lis[i].onclick = function () {
+                    for (var j = 0; j < lis.length; j++) {
+                        lis[j].className = '';
+                        items[j].style.display = 'none';
+                    }
+                    this.className = 'current';
+                    items[this.getAttribute('index')].style.display = 'block';
+                    console.log(i);
+                };
+            }
+        </script>
+    </body>
+</html>

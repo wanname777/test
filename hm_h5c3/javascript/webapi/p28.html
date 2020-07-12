@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p28_demo</title>
+        <style>
+            table {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th width="50px" align="left">
+                        <input type="checkbox" name="" id="ckboxHead" />
+                    </th>
+                    <th colspan="4">111</th>
+                </tr>
+            </thead>
+            <tbody id="ckboxBody">
+                <tr class="test">
+                    <td><input type="checkbox" name="" id="" /></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id="" /></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id="" /></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            var tr = document.querySelectorAll('tbody tr');
+            // console.log(tr);
+            for (var i = 0; i < tr.length; i++) {
+                tr[i].onmouseover = function () {
+                    this.style.backgroundColor = 'red';
+                };
+                tr[i].onmouseout = function () {
+                    this.style.backgroundColor = 'transparent';
+                };
+            }
+            var ckboxHead = document.getElementById('ckboxHead'),
+                ckboxBody = document
+                    .getElementById('ckboxBody')
+                    .getElementsByTagName('input');
+            // console.log(ckboxHead);
+            // console.log(ckboxBody);
+            // var flag = true;
+            // 最上面为全选按钮
+            ckboxHead.onclick = function () {
+                for (var i = 0; i < ckboxBody.length; i++) {
+                    ckboxBody[i].checked = this.checked;
+                }
+            };
+            // 如果下面都选上，则上面也选，有一个不选，则上面不选
+            for (var i = 0; i < ckboxBody.length; i++) {
+                ckboxBody[i].onclick = function () {
+                    var flag = true;
+                    for (var i = 0; i < ckboxBody.length; i++) {
+                        if (!ckboxBody[i].checked) {
+                            flag = false;
+                        }
+                    }
+                    ckboxHead.checked = flag;
+                };
+            }
+            console.log(ckboxHead.getAttribute('type')); //可以获得自定义属性
+            // ckboxHead.setAttribute('type', 'radio');
+            // ckboxHead.removeAttribute('name');
+        </script>
+    </body>
+</html>

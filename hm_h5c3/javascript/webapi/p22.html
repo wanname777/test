@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p22_demo</title>
+    </head>
+    <style>
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #p1 {
+            float: left;
+        }
+        .first {
+            color: red;
+        }
+        .change {
+            color: green;
+        }
+        .redMessage {
+            color: red;
+        }
+        .greenMessage {
+            color: green;
+        }
+        .blueMessage {
+            color: blue;
+        }
+    </style>
+    <body>
+        <div class="clearfix">
+            <input
+                type="text"
+                name="phone"
+                id="p1"
+                placeholder="手机"
+                class="first"
+            />
+            <p class="blueMessage" id="message">提示</p>
+        </div>
+        <button>提示</button>
+        <button>提示</button>
+        <button>提示</button>
+        <button>提示</button>
+        <button>提示</button>
+        <script>
+            var p1 = document.querySelector('#p1');
+            var message = document.querySelector('#message');
+            p1.onfocus = function () {
+                this.placeholder = '';
+                // 注意类名是className，而不是class
+                this.className = 'change';
+            };
+            p1.onblur = function () {
+                this.placeholder = '手机';
+                this.className = 'first';
+                if (this.value.length < 6) {
+                    message.className = 'redMessage';
+                } else {
+                    message.className = 'greenMessage';
+                }
+            };
+            var btn = document.querySelectorAll('button');
+            // console.log(btn[0]);
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].onclick = function () {
+                    for (var j = 0; j < btn.length; j++) {
+                        btn[j].style.backgroundColor = '';
+                    }
+                    // 注意里面是this，不能是btn[i]
+                    this.style.backgroundColor = 'red';
+                    this.style.outline = 'none';
+                };
+            }
+        </script>
+    </body>
+</html>

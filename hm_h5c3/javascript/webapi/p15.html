@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>分时问好</title>
+    </head>
+    <body>
+        <div></div>
+        <img src="" alt="" width="500px" />
+        <script>
+            var d1 = document.querySelector('div'),
+                i1 = document.querySelector('img'),
+                nowDate = new Date();
+            console.log(nowDate.getHours());
+            if (nowDate.getHours() < 12) {
+                d1.innerHTML = '上午好！';
+                i1.src = 'D:/vscode/vs_end_01/images/audio属性.png';
+            } else if (nowDate.getHours() < 18) {
+                d1.innerHTML = '中午好！';
+                i1.src = 'D:/vscode/vs_end_01/images/background背景属性表.png';
+            } else {
+                d1.innerHTML = '晚上好！';
+                i1.src = 'D:/vscode/vs_end_01/images/c3过渡.png';
+            }
+        </script>
+    </body>
+</html>
