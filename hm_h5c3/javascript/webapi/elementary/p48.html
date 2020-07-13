@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p48_demo</title>
+    </head>
+    <body>
+        <div class="div-creat">
+            姓名：<input type="text" name="" id="" /> 科目：<input
+                type="text"
+                name=""
+                id=""
+            />
+            成绩：<input type="text" name="" id="" />
+            <button>提交</button>
+        </div>
+        <table border="1" cellspacing="0" class="table-show">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>xiaoming</td>
+                    <td>js</td>
+                    <td>80</td>
+                    <td><a href="javascript:;">删除</a></td>
+                </tr> -->
+            </tbody>
+        </table>
+        <script>
+            var divCreat = document.querySelector('.div-creat'),
+                tableShow = document.querySelector('.table-show');
+            var btn = divCreat.querySelector('button'),
+                inpt = divCreat.querySelectorAll('input'),
+                tbd = tableShow.querySelector('tbody');
+
+            // console.log(btn);
+            btn.onclick = function () {
+                // console.log(inpt[0]);
+                var tr = document.createElement('tr');
+                tbd.appendChild(tr);
+                var newestTr = tbd.children[tbd.children.length - 1];
+                for (var i = 0; i < inpt.length; i++) {
+                    // 也不知道为什么，反正就得创一个放一个，可能是new的关系
+                    var td = document.createElement('td');
+                    td.innerHTML = inpt[i].value;
+                    newestTr.appendChild(td);
+                }
+                var td = document.createElement('td');
+                td.innerHTML = '<a href="javascript:;">删除</a>';
+                newestTr.appendChild(td);
+                var aDel = newestTr.querySelector('a');
+                aDel.onclick = function () {
+                    tbd.removeChild(newestTr);
+                };
+            };
+        </script>
+    </body>
+</html>

@@ -61,15 +61,22 @@
             var lis = tabList.querySelectorAll('li');
             var items = document.querySelectorAll('.item');
             for (var i = 0; i < lis.length; i++) {
-                lis[i].setAttribute('index', i);
+                lis[i].setAttribute('data-index-name', i);
                 lis[i].onclick = function () {
                     for (var j = 0; j < lis.length; j++) {
                         lis[j].className = '';
                         items[j].style.display = 'none';
                     }
                     this.className = 'current';
-                    items[this.getAttribute('index')].style.display = 'block';
+                    items[this.getAttribute('data-index-name')].style.display =
+                        'block';
                     console.log(i);
+                    console.log(
+                        this.dataset.indexName,
+                        this.dataset['indexName']
+                    );
+                    // getAttribute兼容性好，dataset是新增的方法，且只能获取data-开头的
+                    // 由于自定义属性用中横线，dataset需要驼峰获取
                 };
             }
         </script>

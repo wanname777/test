@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p39_demo</title>
+        <style>
+            li {
+                list-style: none;
+            }
+            .nav > li {
+                float: left;
+            }
+            .nav li a {
+                display: block;
+                margin-left: 2em;
+            }
+            .nav li ul {
+                display: none;
+            }
+            .creat li {
+                width: 500px;
+            }
+            .creat li a {
+                float: right;
+            }
+            .clearfix::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <script>
+            var ul = document.querySelector('ul');
+            console.log(
+                ul.parentNode,
+                ul.childNodes,
+                ul.childNodes[0].nodeType
+            );
+            // 在获取子节点时，换行符等也算结点
+            console.log(
+                ul.children[0],
+                ul.children[ul.children.length - 1],
+                ul.firstChild,
+                ul.firstElementChild,
+                ul.lastElementChild
+            );
+            // 因此children更好,elementchild也有兼容性问题
+        </script>
+        <div class="nav clearfix">
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">腾讯</a>
+                <ul>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">阿里</a>
+                <ul>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">百度</a>
+                <ul>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                </ul>
+            </li>
+        </div>
+        <script>
+            var nav = document.querySelector('.nav');
+            var lis = nav.children;
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].onmouseover = function () {
+                    this.children[1].style.display = 'block';
+                };
+                lis[i].onmouseout = function () {
+                    this.children[1].style.display = 'none';
+                };
+            }
+            console.log(
+                nav.nextSibling,
+                nav.nextElementSibling,
+                nav.previousSibling,
+                nav.previousElementSibling
+            );
+        </script>
+        <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="hhh"
+            style="resize: none;"
+        ></textarea>
+        <button>发布</button>
+        <!-- <button>删除</button> -->
+        <ul class="creat">
+            <!-- <li>123 <a href="javascript:;">删除</a></li> -->
+        </ul>
+        <script>
+            var creat = document.querySelector('.creat');
+            var li = document.createElement('li');
+            creat.appendChild(li);
+            creat.insertBefore(li, creat.children[0]);
+            var btn = document.querySelector('button');
+            var text = document.querySelector('textarea');
+            btn.onclick = function () {
+                if (!text.value) {
+                    alert('请输入内容');
+                } else {
+                    var tempLi = document.createElement('li');
+                    tempLi.innerHTML =
+                        text.value + '<a href="javascript:;">删除</a>';
+                    // creat.appendChild(tempLi);
+                    creat.insertBefore(tempLi, creat.children[0]);
+                    // 由于是倒叙，只选第一个即可
+                    var rm = document.querySelector('.creat li a');
+                    rm.onclick = function () {
+                        creat.removeChild(rm.parentNode);
+                    };
+                }
+            };
+        </script>
+        <ul class="copy">
+            <li>1</li>
+        </ul>
+        <script>
+            var copy=document.querySelector('.copy');
+            // 里面为空或false则只拷贝框架，不拷贝内容
+            copy.appendChild(copy.children[0].cloneNode(true));
+        </script>
+    </body>
+</html>
