@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p70_demo</title>
+        <style>
+            img {
+                position: absolute;
+                top: 100px;
+            }
+            .show {
+                display: none;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <img
+            src="D:/vscode/vs_end_01/images/DOM事件流.png"
+            alt=""
+            width="50px"
+        />
+        <input type="search" name="" id="" placeholder="鸟" />
+        <div class="show">
+            456
+        </div>
+        <script>
+            var pic = document.querySelector('img');
+            var sear = document.querySelector('input');
+            var show = document.querySelector('.show');
+            // document.addEventListener('mousemove', function move(e) {
+            //     // console.log(e.pageX, e.pageY);
+            //     pic.style.top = e.pageY + 'px';
+            //     pic.style.left = e.pageX + 'px';
+            //     // 不能用set，因为set是设置属性，上式在style里
+            // });
+
+            // 先down再press再up
+            // down、up不区分Aa，都是65，press区分Aa
+            document.addEventListener('keyup', function (e) {
+                console.log(11);
+                console.log(e.keyCode, e.key);
+                if (e.key == 's') {
+                    sear.focus(); //获得焦点
+                }
+            });
+            sear.addEventListener('keyup', function () {
+                // 不能用down或press，因为会先触发down再输入文字，导致显示少一位
+                if (!this.value) show.style.display = 'none';
+                else {
+                    show.style.display = 'block';
+                    show.innerHTML = this.value;
+                }
+            });
+            sear.addEventListener('blur', function (e) {
+                show.style.display = 'none';
+            });
+            sear.addEventListener('focus', function () {
+                if (this.value) show.style.display = 'block';
+            });
+            // document.addEventListener('keydown', function (e) {
+            //     console.log(11); //按下不停会一直触发
+            // });
+            // document.addEventListener('keypress', function (e) {
+            //     console.log(11); //不能识别功能键
+            // });
+        </script>
+    </body>
+</html>

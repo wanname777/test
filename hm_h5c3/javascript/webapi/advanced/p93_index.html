@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>index</title>
+    </head>
+    <body>
+        <div>欢迎</div>
+        <button>后退</button>
+        <script>
+            var div = document.querySelector('div');
+            // search可以获得？后面的内容（包括？）
+            var username = location.search.split('=')[1];
+            div.innerHTML = '欢迎您，' + username + '!';
+            // console.log(username.split('=')[1]);
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                // history.back();
+                // history.forward();
+                history.go(-1);
+            });
+        </script>
+    </body>
+</html>

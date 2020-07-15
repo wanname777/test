@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p86_demo</title>
+    </head>
+    <body>
+        <button>点击发送</button>
+        <script>
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                this.disabled = true;
+                this.innerHTML = '剩余5秒再次发送';
+                var time = 4;
+                var timer = setInterval(() => {
+                    if (time == 0) {
+                        clearInterval(timer);
+                        this.innerHTML = '点击发送';
+                        this.disabled = false;
+                    } else {
+                        this.innerHTML = '剩余' + time-- + '秒再次发送';
+                    }
+                }, 1000);
+            });
+        </script>
+    </body>
+</html>

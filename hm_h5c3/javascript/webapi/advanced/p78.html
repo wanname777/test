@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>p78_demo</title>
+        <style>
+            div {
+                width: 250px;
+                height: 250px;
+                background-color: pink;
+            }
+        </style>
+        <script>
+            // js先执行同步任务，再执行是异步的，所以定时器等会后执行
+            window.addEventListener('load', function () {
+                var btn = document.querySelector('button');
+                btn.addEventListener('click', function () {
+                    alert('111'); // load是页面所有元素加载完再执行的
+                });
+            });
+            window.addEventListener('resize', function () {
+                console.log(window.innerWidth, window.innerHeight);
+                var div = document.querySelector('div'); //在window里面加变量似乎可以再文档最后执行
+                if (window.innerWidth <= 800) div.style.display = 'none';
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+                alert('22'); //在图片，flash等加载之前执行，用于图片较多时，提高用户体验
+            });
+            var timer1 = window.setTimeout(() => {
+                console.log(this);
+                console.log('111');
+                var btn = document.querySelector('button');
+                // console.log(btn);
+                btn.style.display = 'none';
+            }, 5000);
+            function Counter() {
+                this.num = 0;
+                // this.num++;//因为用=>，这里的this不会指向父亲window
+                this.timer = setInterval(() => console.log(this.num++), 1000);
+            }
+            Counter();
+            window.addEventListener('load', function () {
+                var stop = document.querySelector('.stop');
+                stop.addEventListener('click', () => clearInterval(timer));
+            });
+            // clearInterval(timer);
+        </script>
+    </head>
+    <body>
+        <button>点击</button>
+        <div></div>
+        <button class="stop">停止计时</button>
+    </body>
+</html>
