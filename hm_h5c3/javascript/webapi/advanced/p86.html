@@ -23,6 +23,17 @@
                     }
                 }, 1000);
             });
+            // 父亲有定位则以父亲为准，获取是动态获取的，且值不加px
+            // width和height获得的是padding+border+width，不包括margin，这个值是只读的
+            console.log(
+                btn.offsetParent,
+                btn.offsetLeft,
+                btn.offsetTop,
+                btn.offsetWidth,
+                btn.offsetHeight
+            );
+            console.log(btn.style.width);
+            // style只能获得行内样式，不能获得表内的样式，值加px
         </script>
     </body>
 </html>
